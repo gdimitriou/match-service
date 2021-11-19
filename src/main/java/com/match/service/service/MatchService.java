@@ -57,8 +57,10 @@ public class MatchService {
                 .findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Match not found with id: " +id));
 
+        Integer matchOddsId = matchOddsRepository.findMatchOddsIdByMatchId(id);
+
         MatchOdds matchOdds = matchOddsRepository
-                .findById(id)
+                .findById(matchOddsId)
                 .orElseThrow(() -> new ResourceNotFoundException("Match not found with id: " +id));
 
         ResponseModel responseModel = new ResponseModel();
@@ -72,7 +74,7 @@ public class MatchService {
         responseModel.setSpecifier(matchOdds.getSpecifier());
         responseModel.setOdd(matchOdds.getOdd());
 
-         return ResponseEntity.ok().body(responseModel);
+        return ResponseEntity.ok().body(responseModel);
     }
 
     @Transactional
@@ -104,8 +106,10 @@ public class MatchService {
                 .findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Match not found with id: " +id));
 
+        Integer matchOddsId = matchOddsRepository.findMatchOddsIdByMatchId(id);
+
         MatchOdds matchOdds = matchOddsRepository
-                .findById(id)
+                .findById(matchOddsId)
                 .orElseThrow(() -> new ResourceNotFoundException("MatchOdds not found with id: " +id));
 
         match.setMatchTime(matchRequestForUpdate.getMatchTime());
@@ -129,12 +133,14 @@ public class MatchService {
                 .findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Match not found with id: " +id));
 
+        Integer matchOddsId = matchOddsRepository.findMatchOddsIdByMatchId(id);
+
         MatchOdds matchOdds = matchOddsRepository
-                .findById(id)
+                .findById(matchOddsId)
                 .orElseThrow(() -> new ResourceNotFoundException("MatchOdds not found with id: " +id));
 
         this.matchRepository.deleteById(id);
-        this.matchOddsRepository.deleteById(id);
+        this.matchOddsRepository.deleteById(matchOddsId);
 
         Map<String, Boolean> response =  new HashMap<>();
         response.put("Deleted" , Boolean.TRUE);
