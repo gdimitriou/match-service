@@ -1,6 +1,5 @@
 package com.match.service.controller;
 
-import com.match.service.entity.Match;
 import com.match.service.exception.ResourceNotFoundException;
 import com.match.service.model.dto.RequestModel;
 import com.match.service.model.dto.ResponseModel;
