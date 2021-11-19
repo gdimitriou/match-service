@@ -1,43 +1,26 @@
-package com.match.service.entity;
+package com.match.service.model.dto;
 
-import javax.persistence.*;
+public class ResponseModel {
 
-@Entity
-@Table(name = "match")
-public class Match {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private Integer id;
-
-    @Column(name = "description")
+    private Integer matchId;
     private String description;
-
-    @Column(name = "match_date")
     private String matchDate;
-
-    @Column(name = "match_time")
     private String matchTime;
-
-    @Column(name = "team_a")
     private String teamA;
-
-    @Column(name = "team_b")
     private String teamB;
-
-    @Column(name = "sport")
     private Integer sport;
+    private String specifier;
+    private Double odd;
 
-    public Match() {
+    public ResponseModel() {
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getMatchId() {
+        return matchId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setMatchId(Integer matchId) {
+        this.matchId = matchId;
     }
 
     public String getDescription() {
@@ -86,5 +69,21 @@ public class Match {
 
     public void setSport(Integer sport) {
         this.sport = sport;
+    }
+
+    public String getSpecifier() {
+        return specifier;
+    }
+
+    public void setSpecifier(String specifier) {
+        this.specifier = specifier;
+    }
+
+    public Double getOdd() {
+        return odd;
+    }
+
+    public void setOdd(Double odd) {
+        this.odd = odd;
     }
 }

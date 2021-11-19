@@ -2,6 +2,8 @@ package com.match.service.controller;
 
 import com.match.service.entity.Match;
 import com.match.service.exception.ResourceNotFoundException;
+import com.match.service.model.dto.RequestModel;
+import com.match.service.model.dto.ResponseModel;
 import com.match.service.service.MatchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,22 +20,22 @@ public class MatchController {
     MatchService matchService;
 
     @GetMapping(value = "/match/getAll")
-    public List<Match> getAllMatches(){
+    public List<ResponseModel> getAllMatches(){
         return matchService.getAllMatches();
     }
 
     @GetMapping(value = "/match/{id}")
-    public ResponseEntity<Match> getMatchById(@PathVariable(value = "id") Integer id) throws ResourceNotFoundException {
+    public ResponseEntity<ResponseModel> getMatchById(@PathVariable(value = "id") Integer id) throws ResourceNotFoundException {
         return this.matchService.getMatchById(id);
     }
 
     @PostMapping(value = "/match")
-    public Match createMatch(@RequestBody Match match) throws ResourceNotFoundException {
-        return this.matchService.createMatch(match);
+    public ResponseEntity<String> createMatch(@RequestBody RequestModel requestModel) throws ResourceNotFoundException {
+        return this.matchService.createMatch(requestModel);
     }
 
     @PutMapping(value = "/match/{id}")
-    public ResponseEntity<Match> updateMatch(@PathVariable(value = "id") Integer id, @RequestBody Match matchRequest) throws ResourceNotFoundException {
+    public ResponseEntity<String> updateMatch(@PathVariable(value = "id") Integer id, @RequestBody RequestModel matchRequest) throws ResourceNotFoundException {
         return this.matchService.updateMatch(id, matchRequest);
     }
 

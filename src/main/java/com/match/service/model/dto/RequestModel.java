@@ -1,24 +1,17 @@
-package com.match.service.model;
+package com.match.service.model.dto;
 
-public class Match {
+public class RequestModel {
 
-    private Integer id;
     private String description;
     private String matchDate;
     private String matchTime;
     private String teamA;
     private String teamB;
-    private int sport;
+    private Integer sport;
+    private String specifier;
+    private Double odd;
 
-    public Match() {
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
+    public RequestModel() {
     }
 
     public String getDescription() {
@@ -61,11 +54,27 @@ public class Match {
         this.teamB = teamB;
     }
 
-    public int getSport() {
+    public Integer getSport() {
         return sport;
     }
 
-    public void setSport(int sport) {
+    public void setSport(Integer sport) {
         this.sport = sport;
+    }
+
+    public String getSpecifier() {
+        return specifier;
+    }
+
+    public void setSpecifier(String specifier) {
+        this.specifier = specifier;
+    }
+
+    public Double getOdd() {
+        return odd;
+    }
+
+    public void setOdd(Double odd) {
+        this.odd = odd;
     }
 }
