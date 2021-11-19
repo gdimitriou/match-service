@@ -86,6 +86,7 @@ public class MatchService {
         match.setTeamB(requestModel.getTeamB());
         match.setTeamA(requestModel.getTeamA());
         match.setDescription(requestModel.getDescription());
+        match.setSport(requestModel.getSport());
 
         this.matchRepository.save(match);
 
