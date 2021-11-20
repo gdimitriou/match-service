@@ -27,7 +27,7 @@ public class Match {
     private String teamB;
 
     @Column(name = "sport")
-    private Integer sport;
+    private Integer sport; //TODO: make Enum
 
     public Match() {
     }

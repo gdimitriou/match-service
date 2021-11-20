@@ -61,7 +61,7 @@ public class MatchService {
 
         MatchOdds matchOdds = matchOddsRepository
                 .findById(matchOddsId)
-                .orElseThrow(() -> new ResourceNotFoundException("Match not found with id: " +id));
+                .orElseThrow(() -> new ResourceNotFoundException("MatchOdds not found with id: " +id));
 
         ResponseModel responseModel = new ResponseModel();
         responseModel.setMatchId(match.getId());
