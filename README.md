@@ -12,7 +12,9 @@ The two data tables are 1-1.
 # Steps to run the program:
 Download the project or clone the code to your favorite IDE (https://github.com/gdimitriou/match-service.git). 
 
-Run: docker-compose up.
+Run:
+1. mvn clean install 
+2. docker-compose up
 
 # Dependencies
 1. Java 8
