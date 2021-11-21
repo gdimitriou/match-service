@@ -6,10 +6,12 @@ It comes with its own Postgres database(matches) consisting of two tables:
 2. match_odds(id, matchId, specifier, odd).
 When creating a new match a new entry is saved at both tables accordingly. 
 The match table one keeps data regarding the match and the match_odds table regarding the match's odds.
+
 The two data tables are 1-1.
 
 # Steps to run the program:
 Download the project or clone the code to your favorite IDE (https://github.com/gdimitriou/match-service.git). 
+
 Run: docker-compose up.
 
 # Dependencies
